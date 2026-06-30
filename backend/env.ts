@@ -20,7 +20,7 @@ const envSchema = z.object({
   DATABASE_URL: z.string().startsWith("postgres://"),
   JWT_SECRET: z.string().min(32, "must be 32 characters long"),
   JWT_EXPIRE_IN: z.string().default("7d"),
-  BCRYPT: z.coerce.number().min(10).max(20).default(12),
+  BCRYPT_ROUNDS: z.coerce.number().min(10).max(20).default(12),
 });
 
 export type Env = z.infer<typeof envSchema>;
