@@ -1,17 +1,10 @@
 import { Router } from "express";
+import { loginUser, registerUser } from "../controllers/authController.js";
 
 const router = Router();
 
-router.post("/login", async (req, res) => {
-  console.log(req.body);
-  console.log("login route");
-  res.status(200).json({ message: "login route works fine" });
-});
+router.post("/login", loginUser);
 
-router.post("/register", async (req, res) => {
-  console.log(req.body);
-  console.log("register route");
-  res.status(200).json({ message: "register route works fine" });
-});
+router.post("/register", registerUser);
 
 export default router;
